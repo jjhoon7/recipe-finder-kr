@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>레시피 인기 검색</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="search-panel" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Naver Blog + YouTube</p>
+          <h1 id="page-title">레시피 인기 검색</h1>
+        </div>
+
+        <form id="search-form" class="search-form">
+          <label class="sr-only" for="food-input">음식명</label>
+          <input id="food-input" name="q" type="search" autocomplete="off" placeholder="예: 김치찌개, 감자전, 파스타" required>
+          <button type="submit">검색</button>
+        </form>
+      </section>
+
+      <section class="status-row" aria-live="polite">
+        <p id="status">음식명을 입력하면 최근 1년 기준 결과를 찾아요.</p>
+      </section>
+
+      <section class="results-grid">
+        <div class="result-column">
+          <div class="column-head">
+            <span class="source-mark naver"></span>
+            <h2>네이버 블로그</h2>
+          </div>
+          <div id="naver-results" class="result-list"></div>
+        </div>
+
+        <div class="result-column">
+          <div class="column-head">
+            <span class="source-mark youtube"></span>
+            <h2>YouTube</h2>
+          </div>
+          <div id="youtube-results" class="result-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="result-card-template">
+      <a class="result-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="card-copy">
+          <span class="badge"></span>
+          <h3></h3>
+          <p></p>
+        </div>
+      </a>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
